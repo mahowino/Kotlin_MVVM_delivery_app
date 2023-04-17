@@ -10,6 +10,8 @@ import dagger.hilt.components.SingletonComponent
 import online.kenya.myapplication.feature_orders.data.data_source.OrderDatabase
 import online.kenya.myapplication.feature_orders.data.repository.OrderRepositoryImpl
 import online.kenya.myapplication.feature_orders.domain.repository.OrderRepository
+import online.kenya.myapplication.feature_orders.domain.use_cases.GetOrdersUseCase
+import online.kenya.myapplication.feature_orders.domain.use_cases.OrderUseCases
 import javax.inject.Singleton
 
 @Module
@@ -30,5 +32,13 @@ object AppModule {
     @Singleton
     fun provideOrderRepository(db:OrderDatabase):OrderRepository{
         return OrderRepositoryImpl(db.orderDao)
+    }
+
+    @Provides
+    @Singleton
+    fun providesOrderUseCases(repository: OrderRepository):OrderUseCases{
+        return OrderUseCases(
+            getOrders = GetOrdersUseCase(repository)
+        )
     }
 }
