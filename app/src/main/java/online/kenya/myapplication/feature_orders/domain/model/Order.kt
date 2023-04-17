@@ -14,7 +14,5 @@ data class Order(
     @PrimaryKey
     val orderId:String?=null
 ){
-    companion object{
 
-    }
 }

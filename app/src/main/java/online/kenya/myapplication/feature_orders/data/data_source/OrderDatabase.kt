@@ -15,4 +15,7 @@ abstract class OrderDatabase :RoomDatabase() {
     abstract val orderDao:OrderDao
     abstract val goodDao:GoodsDao
     abstract val goodVariantDao:GoodVariantDao
+    companion object{
+        const val DATABASE_NAME="ORDER_DATABASE"
+    }
 }
