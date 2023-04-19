@@ -14,4 +14,7 @@ interface OrderDao {
     @Query("SELECT * FROM `order` WHERE orderId=:id")
     suspend fun getOrderById(id:String):Order?
 
+    @Query("SELECT userPhoneNumber FROM `order` WHERE orderId=:id")
+    suspend fun getPhoneNumberById(id:String):String?
+
 }

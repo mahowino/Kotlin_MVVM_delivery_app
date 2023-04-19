@@ -13,6 +13,8 @@ data class Order(
     val userLocation:LatLng,
     @PrimaryKey
     val orderId:String?=null
-){
+)
 
-}
+class InvalidPhoneNumberException(message: String):Exception(message)
+
+
